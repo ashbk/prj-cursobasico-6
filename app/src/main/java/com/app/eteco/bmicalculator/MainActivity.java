@@ -82,7 +82,10 @@ public class MainActivity extends AppCompatActivity {
 
                     String bmiInterpretation = interpretBMI(bmiValue);
 
-                    tv_result.setText(String.valueOf(bmiValue + "-" + bmiInterpretation));
+                    float min_ideal_weight = minMetricIdealWeight(cm);
+                    float max_ideal_weight = maxMetricIdealWeight(cm);
+
+                    tv_result.setText("BMI: " + String.valueOf(bmiValue + "\nCondition: " + bmiInterpretation + "\nIdeal Weight between: " + min_ideal_weight + " and " + max_ideal_weight + " kilograms"));
                 }
 
                 else if(rb_kg.isChecked() && rb_ft_in.isChecked()) {
@@ -116,7 +119,10 @@ public class MainActivity extends AppCompatActivity {
 
                     String bmiInterpretation = interpretBMI(bmiValue);
 
-                    tv_result.setText(String.valueOf(bmiValue + "-" + bmiInterpretation));
+                    float min_ideal_weight = minImperialIdealWeight(ft, in);
+                    float max_ideal_weight = maxImperialIdealWeight(ft, in);
+
+                    tv_result.setText("BMI: " + String.valueOf(bmiValue + "\nCondition: " + bmiInterpretation + "\nIdeal Weight between: " + min_ideal_weight + " and " + max_ideal_weight + " kilograms"));
                 }
 
                 if(rb_lb.isChecked() && rb_cm.isChecked()) {
@@ -142,7 +148,10 @@ public class MainActivity extends AppCompatActivity {
 
                     String bmiInterpretation = interpretBMI(bmiValue);
 
-                    tv_result.setText(String.valueOf(bmiValue + "-" + bmiInterpretation));
+                    float min_ideal_weight = minMetricIdealWeight(cm);
+                    float max_ideal_weight = maxMetricIdealWeight(cm);
+
+                    tv_result.setText("BMI: " + String.valueOf(bmiValue + "\nCondition: " + bmiInterpretation + "\nIdeal Weight between: " + min_ideal_weight + " and " + max_ideal_weight + " pounds"));
                 }
 
                 else if(rb_lb.isChecked() && rb_ft_in.isChecked()) {
@@ -176,7 +185,10 @@ public class MainActivity extends AppCompatActivity {
 
                     String bmiInterpretation = interpretBMI(bmiValue);
 
-                    tv_result.setText(String.valueOf(bmiValue + "-" + bmiInterpretation));
+                    float min_ideal_weight = minImperialIdealWeight(ft, in);
+                    float max_ideal_weight = maxImperialIdealWeight(ft, in);
+
+                    tv_result.setText("BMI: " + String.valueOf(bmiValue + "\nCondition: " + bmiInterpretation + "\nIdeal Weight between: " + min_ideal_weight + " and " + max_ideal_weight + " pounds"));
                 }
             }
         });
@@ -267,6 +279,58 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private float minImperialIdealWeight(float ft, float in){
+        if(rb_kg.isChecked()){
+            float bmiMin = (float)18.51;
+            in = in + (ft*12);
+            float cm = in*(float)0.0254;
+            return (bmiMin*(cm*cm));
+        }
+        else {
+            float bmiMin = (float)18.51;
+            in = in + (ft*12);
+            float cm = in*(float)0.0254;
+            return (float)(bmiMin*(cm*cm)*2.20462);
+        }
+    }
+
+    private float maxImperialIdealWeight(float ft, float in){
+        if(rb_kg.isChecked()) {
+            float bmiMax = 25;
+            in = in + (ft*12);
+            float cm = in*(float)0.0254;
+            return (bmiMax*(cm*cm));
+        }
+        else {
+            float bmiMax = 25;
+            in = in + (ft*12);
+            float cm = in*(float)0.0254;
+            return (float)(bmiMax*(cm*cm)*2.20462);
+        }
+    }
+
+    private float minMetricIdealWeight(float cm){
+        if(rb_kg.isChecked()) {
+            float bmiMin = (float) 18.51;
+            return (bmiMin * (cm * cm));
+        }
+        else {
+            float bmiMin = (float) 18.51;
+            return (float)(bmiMin * (cm * cm)*2.20462);
+        }
+    }
+
+    private float maxMetricIdealWeight(float cm){
+        if(rb_kg.isChecked()) {
+            float bmiMax = 25;
+            return (bmiMax * (cm * cm));
+        }
+        else {
+            float bmiMax = 25;
+            return (float)(bmiMax * (cm * cm)*2.20462);
+        }
+    }
+
     TextWatcher textwatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -277,6 +341,7 @@ public class MainActivity extends AppCompatActivity {
         public void onTextChanged(CharSequence s, int start, int before, int count) {
 
         }
+
         @Override
         public void afterTextChanged(Editable s) {
             EditText et = null;
