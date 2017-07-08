@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">BMI Calculator</string>
+    <string name="splash_screen_peso_ideal_title">Tu Peso Ideal</string>
+    <string name="splash_screen_peso_ideal_btn">Start</string>
+    <string name="splash_screen_peso_ideal_info">Calculadora de Índice de Masa Corporal (IMC)</string>
+    <string name="activity_main_kg">Kilogramo (kg)</string>
+    <string name="activity_main_libs">Libra (lb)</string>
+    <string name="activity_main_cm">Centímetros (cm)</string>
+    <string name="activity_main_ft_in">Pies/Pulgadas</string>
+    <string name="activity_main_hint_cm">Centímetros</string>
+    <string name="activity_main_hint_ft">Pies</string>
+    <string name="activity_main_hint_in">Pulgadas</string>
+    <string name="digits">0123456789</string>
+    <string name="digits_dot">0123456789.</string>
+    <string name="activity_main_button">Calcular</string>
+</resources>

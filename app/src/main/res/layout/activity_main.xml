@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.app.eteco.bmicalculator.MainActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Valor del peso"
+        android:layout_margin="10dp"
+        android:textSize="16sp"/>
+    <RadioGroup
+        android:id="@+id/rg_peso"
+        android:paddingLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checkedButton="@+id/rb_kilogramo">
+
+        <RadioButton
+            android:id="@+id/rb_kilogramo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/activity_main_kg"
+            />
+
+        <RadioButton
+            android:id="@+id/rb_libra"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/activity_main_libs"/>
+
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/et_peso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:textSize="16sp"
+        android:hint="Tu Peso"
+        android:gravity="center"
+        android:maxLength="6"
+        android:digits="0123456789."
+        android:inputType="number|textFilter"
+        android:imeOptions="actionDone"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Valor del tamaño"
+        android:layout_margin="10dp"
+        android:textSize="16sp"/>
+
+    <RadioGroup
+        android:id="@+id/rg_height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:checkedButton="@+id/rb_cm">
+
+        <RadioButton
+            android:id="@+id/rb_cm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/activity_main_cm"/>
+
+        <RadioButton
+            android:id="@+id/rb_ft_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/activity_main_ft_in"/>
+
+    </RadioGroup>
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/et_cm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:hint="@string/activity_main_hint_cm"
+            android:maxLength="6"
+            android:digits="0123456789."
+            android:inputType="number|textFilter"
+            android:imeOptions="actionDone"/>
+
+        <EditText
+            android:id="@+id/et_ft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:hint="@string/activity_main_hint_ft"
+            android:maxLength="2"
+            android:digits="0123456789"
+            android:inputType="number|textFilter"
+            android:imeOptions="actionDone"
+            android:visibility="gone"/>
+        <EditText
+            android:id="@+id/et_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:hint="@string/activity_main_hint_in"
+            android:maxLength="2"
+            android:digits="0123456789"
+            android:inputType="number|textFilter"
+            android:imeOptions="actionDone"
+            android:visibility="gone"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_calc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textAllCaps="false"
+        android:layout_gravity="bottom|center_horizontal"
+        android:text="@string/activity_main_button"/>
+
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingTop="20dp"
+        android:text=""
+        android:textSize="16sp"/>
+
+</LinearLayout>
